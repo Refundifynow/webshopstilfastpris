@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Webshops til Fast Pris — gratis udkast først, betal kun hvis du er glad</title>
+<meta name="description" content="Jeg laver webshops og hjemmesider til fast pris. Du får et gratis udkast først — du betaler kun hvis du er glad for det.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+:root {
+  --bg: #f5f0e8;
+  --bg-card: #fbf8f2;
+  --ink: #1c1917;
+  --ink-soft: #57534e;
+  --ink-muted: #78716c;
+  --line: #e3dccf;
+  --line-soft: #ece4d4;
+  --accent: #b54414;
+  --accent-soft: #d8784a;
+  --accent-bg: rgba(181, 68, 20, 0.08);
+}
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--ink);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  font-size: 16.5px;
+}
+.serif {
+  font-family: 'Fraunces', Georgia, serif;
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.02em;
+}
+.italic { font-style: italic; font-variation-settings: "opsz" 144, "SOFT" 50; }
+.container { max-width: 1100px; margin: 0 auto; padding: 0 28px; }
+a { color: inherit; }
+
+/* NAV */
+nav {
+  padding: 22px 0;
+  border-bottom: 1px solid var(--line);
+}
+.nav-inner { display: flex; justify-content: space-between; align-items: baseline; }
+.brand {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 700;
+  font-size: 22px;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  color: var(--ink);
+}
+.brand .accent { color: var(--accent); font-style: italic; }
+.nav-right { display: flex; gap: 28px; align-items: center; font-size: 15px; }
+.nav-right a {
+  text-decoration: none;
+  color: var(--ink-soft);
+  font-weight: 500;
+}
+.nav-right a:hover { color: var(--accent); }
+.nav-right a.cta {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  font-weight: 600;
+}
+
+/* HERO */
+.hero { padding: 110px 0 80px; text-align: center; }
+.hero-grid { max-width: 820px; margin: 0 auto; }
+.hero .eyebrow { justify-content: center; display: inline-flex; }
+.hero .lead { margin-left: auto; margin-right: auto; }
+.hero-actions { justify-content: center; }
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13.5px;
+  color: var(--accent);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+  text-transform: uppercase;
+}
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 24px; height: 1px;
+  background: var(--accent);
+}
+.hero h1 {
+  font-family: 'Fraunces', Georgia, serif;
+  font-weight: 500;
+  font-size: 62px;
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin-bottom: 24px;
+}
+.hero h1 .underline {
+  background-image: linear-gradient(transparent 70%, rgba(181,68,20,0.25) 70%);
+  background-size: 100% 100%;
+  padding: 0 4px;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--accent);
+  font-weight: 500;
+  font-variation-settings: "opsz" 144, "SOFT" 50;
+}
+.lead {
+  font-size: 19px;
+  color: var(--ink-soft);
+  max-width: 520px;
+  margin-bottom: 32px;
+  line-height: 1.55;
+}
+.hero-actions { display: flex; gap: 14px; align-items: center; flex-wrap: wrap; }
+.btn {
+  display: inline-block;
+  padding: 14px 26px;
+  font-weight: 600;
+  font-size: 15.5px;
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.18s ease;
+}
+.btn-primary {
+  background: var(--ink);
+  color: var(--bg);
+}
+.btn-primary:hover { background: var(--accent); }
+.btn-text {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1px;
+  padding: 14px 6px;
+}
+.btn-text:hover { color: var(--accent); }
+
+/* Polaroid / personal card */
+.intro-card {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  padding: 28px;
+  border-radius: 4px;
+  position: relative;
+  transform: rotate(1.2deg);
+  box-shadow: 0 20px 40px -20px rgba(28,25,23,0.18);
+}
+.intro-card::before {
+  content: "";
+  position: absolute;
+  top: -14px; left: 50%;
+  transform: translateX(-50%) rotate(-3deg);
+  width: 80px; height: 22px;
+  background: rgba(181, 68, 20, 0.18);
+  border-radius: 1px;
+}
+.intro-portrait {
+  width: 100%;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, #d8784a 0%, #b54414 100%);
+  border-radius: 2px;
+  margin-bottom: 20px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.intro-portrait::after {
+  content: "H";
+  font-family: 'Fraunces', serif;
+  font-size: 120px;
+  font-weight: 500;
+  color: rgba(255, 251, 245, 0.88);
+  font-style: italic;
+}
+.intro-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.intro-card p {
+  font-size: 14.5px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.intro-card .signature {
+  margin-top: 14px;
+  font-family: 'Fraunces', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--accent);
+}
+
+/* PROMISE STRIPE */
+.promise {
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  padding: 28px 0;
+  background: var(--bg-card);
+}
+.promise-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  text-align: center;
+}
+.promise-row > div { font-size: 15px; color: var(--ink-soft); }
+.promise-row strong {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 17px;
+  color: var(--ink);
+  display: block;
+  margin-bottom: 4px;
+}
+
+/* GENERIC SECTION */
+section.block { padding: 90px 0; }
+.section-head { max-width: 720px; margin-bottom: 56px; }
+.section-head .eyebrow { margin-bottom: 18px; }
+.section-head h2 {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+.section-head h2 em { font-style: italic; color: var(--accent); font-weight: 500; }
+.section-head p { font-size: 18px; color: var(--ink-soft); line-height: 1.55; }
+
+/* HOW IT WORKS */
+.how { padding: 90px 0; }
+.steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+}
+.step {
+  border-top: 2px solid var(--ink);
+  padding-top: 22px;
+}
+.step-num {
+  font-family: 'Fraunces', serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+.step h4 {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-size: 22px;
+  margin-bottom: 10px;
+  letter-spacing: -0.01em;
+}
+.step p {
+  font-size: 15px;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
+.step .highlight {
+  display: inline-block;
+  background: var(--accent-bg);
+  color: var(--accent);
+  font-weight: 600;
+  padding: 1px 6px;
+  border-radius: 3px;
+}
+
+/* PRICING */
+.pricing { padding: 90px 0; background: var(--bg-card); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.price-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  max-width: 920px;
+  margin: 0 auto;
+}
+.price-card {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  padding: 40px 36px;
+  border-radius: 6px;
+  position: relative;
+}
+.price-card.featured { border: 2px solid var(--ink); }
+.price-tag {
+  position: absolute;
+  top: -12px; left: 24px;
+  background: var(--ink);
+  color: var(--bg);
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+.price-card h3 {
+  font-family: 'Fraunces', serif;
+  font-size: 26px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.price-card .desc {
+  font-size: 15px;
+  color: var(--ink-soft);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+.price {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-bottom: 4px;
+  border-top: 1px solid var(--line);
+  padding-top: 24px;
+}
+.price .amount {
+  font-family: 'Fraunces', serif;
+  font-size: 56px;
+  font-weight: 500;
+  letter-spacing: -0.025em;
+  line-height: 1;
+}
+.price .currency {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--ink-muted);
+}
+.price-note {
+  font-size: 13.5px;
+  color: var(--ink-muted);
+  margin-bottom: 28px;
+  font-style: italic;
+}
+.feat-list { list-style: none; margin-bottom: 32px; }
+.feat-list li {
+  padding: 9px 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 14.5px;
+  color: var(--ink-soft);
+}
+.feat-list li::before {
+  content: "—";
+  color: var(--accent);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+.price-card .btn { width: 100%; text-align: center; }
+
+.pricing-note {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 15px;
+  color: var(--ink-soft);
+}
+.pricing-note strong { color: var(--ink); font-weight: 600; }
+
+/* WHY ME / COMMITMENTS */
+.why { padding: 100px 0; }
+.why-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.why-list { display: flex; flex-direction: column; gap: 36px; }
+.why-item h4 {
+  font-family: 'Fraunces', serif;
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  letter-spacing: -0.01em;
+}
+.why-item p {
+  font-size: 16px;
+  color: var(--ink-soft);
+  line-height: 1.6;
+}
+
+/* FAQ */
+.faq { padding: 90px 0; background: var(--bg-card); border-top: 1px solid var(--line); }
+.faq-list { max-width: 760px; margin: 0 auto; }
+.faq-item {
+  border-bottom: 1px solid var(--line);
+  padding: 24px 0;
+  cursor: pointer;
+}
+.faq-item:first-child { border-top: 1px solid var(--line); }
+.faq-q {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+.faq-q::after {
+  content: "+";
+  font-size: 22px;
+  font-weight: 400;
+  color: var(--accent);
+  transition: transform 0.2s;
+  flex-shrink: 0;
+}
+.faq-item.open .faq-q::after { transform: rotate(45deg); }
+.faq-a {
+  color: var(--ink-soft);
+  font-size: 16px;
+  line-height: 1.6;
+  margin-top: 12px;
+  display: none;
+  max-width: 620px;
+}
+.faq-item.open .faq-a { display: block; }
+
+/* CONTACT */
+.contact { padding: 110px 0; }
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+.contact h2 {
+  font-family: 'Fraunces', serif;
+  font-size: 48px;
+  font-weight: 500;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+.contact h2 em { font-style: italic; color: var(--accent); }
+.contact .lead { margin-bottom: 28px; max-width: 460px; }
+.contact-meta { font-size: 16px; color: var(--ink-soft); line-height: 1.8; }
+.contact-meta a { color: var(--accent); text-decoration: underline; text-underline-offset: 3px; font-weight: 500; }
+
+.contact-form {
+  background: var(--bg-card);
+  border: 1px solid var(--line);
+  padding: 36px;
+  border-radius: 6px;
+}
+.field { margin-bottom: 18px; }
+.field label {
+  display: block;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  font-family: inherit;
+  font-size: 15px;
+  background: var(--bg);
+  color: var(--ink);
+  outline: none;
+  transition: border-color 0.15s;
+}
+.field input:focus,
+.field textarea:focus { border-color: var(--accent); }
+.field textarea { min-height: 110px; resize: vertical; font-family: inherit; }
+.contact-form .btn { width: 100%; margin-top: 8px; }
+.form-note { font-size: 13px; color: var(--ink-muted); margin-top: 14px; text-align: center; font-style: italic; }
+
+/* PS NOTE */
+.ps {
+  max-width: 720px;
+  margin: 60px auto 0;
+  padding: 24px 28px;
+  background: var(--accent-bg);
+  border-left: 3px solid var(--accent);
+  border-radius: 2px;
+  font-size: 16px;
+  color: var(--ink);
+  line-height: 1.6;
+}
+.ps strong {
+  font-family: 'Fraunces', serif;
+  font-weight: 600;
+  font-style: italic;
+  color: var(--accent);
+}
+
+/* FOOTER */
+footer {
+  padding: 36px 0;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+  color: var(--ink-muted);
+}
+.foot-inner { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px; }
+footer a { text-decoration: none; }
+footer a:hover { color: var(--accent); }
+
+/* RESPONSIVE */
+@media (max-width: 860px) {
+  .hero { padding: 50px 0 30px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+  .hero h1 { font-size: 42px; }
+  .lead { font-size: 17px; }
+  .intro-card { max-width: 320px; margin: 0 auto; }
+  .promise-row { grid-template-columns: 1fr; gap: 20px; }
+  .section-head h2 { font-size: 32px; }
+  .steps { grid-template-columns: 1fr 1fr; gap: 32px 24px; }
+  .price-grid { grid-template-columns: 1fr; }
+  .why-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+  .contact h2 { font-size: 36px; }
+  section.block, .pricing, .how, .why, .faq, .contact { padding: 60px 0; }
+  .nav-right a:not(.cta) { display: none; }
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="container nav-inner">
+    <a href="#" class="brand">Webshops til <span class="accent">fast pris</span></a>
+    <div class="nav-right">
+      <a href="#sådan">Sådan virker det</a>
+      <a href="#priser">Priser</a>
+      <a href="#faq">FAQ</a>
+      <a href="#kontakt" class="cta">Få et gratis udkast →</a>
+    </div>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="eyebrow">Gratis udkast — ingen risiko</div>
+      <h1 class="serif">
+        Jeg laver din webshop først.<br>
+        Du betaler kun, <em>hvis du er glad for den.</em>
+      </h1>
+      <p class="lead">
+        Faste priser, ingen timepriser, ingen overraskelser. Du fortæller mig hvad du har brug for — så bygger jeg et udkast. Synes du om det, betaler du. Ellers er der ikke noget tabt.
+      </p>
+      <div class="hero-actions">
+        <a href="#kontakt" class="btn btn-primary">Få et gratis udkast</a>
+        <a href="#sådan" class="btn btn-text">Sådan foregår det →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="promise">
+  <div class="container">
+    <div class="promise-row">
+      <div><strong class="serif">Gratis udkast</strong>Du ser det færdige design før du betaler</div>
+      <div><strong class="serif">Fast pris</strong>Du ved præcis hvad det koster fra start</div>
+      <div><strong class="serif">7-14 dage</strong>Hurtig levering, så du kan komme i gang</div>
+    </div>
+  </div>
+</section>
+
+<section class="how" id="sådan">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Sådan foregår det</div>
+      <h2 class="serif">Fire trin. <em>Ingen risiko.</em></h2>
+      <p>Den eneste måde det giver mening på, hvis du spørger mig: du ser arbejdet før du beslutter dig.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <h4 class="serif">Du skriver til mig</h4>
+        <p>Send mig et par linjer om hvad du har brug for. En ny hjemmeside, en webshop, eller noget tredje. Jeg vender tilbage hurtigt.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <h4 class="serif">Jeg laver et udkast</h4>
+        <p>På et par dage bygger jeg et rigtigt udkast — ikke en skitse. Du kan klikke rundt og se hvordan det føles. <span class="highlight">Det koster ikke noget.</span></p>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <h4 class="serif">Du tager stilling</h4>
+        <p>Synes du om det, går vi videre — og så betaler du. Ikke glad? Så tak for denne gang. Ingen surt fjæs, ingen regning.</p>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <h4 class="serif">Vi gør færdigt</h4>
+        <p>Vi finjusterer indhold, billeder og detaljer. Jeg sætter SSL og domæne op — og så er du live.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pricing" id="priser">
+  <div class="container">
+    <div class="section-head" style="text-align: center; margin: 0 auto 56px;">
+      <div class="eyebrow" style="justify-content: center; display: flex;">Priser</div>
+      <h2 class="serif">Det du ser, er <em>det du betaler.</em></h2>
+      <p>Ekskl. moms. Engangsbeløb. Kun hvis du siger ja til udkastet.</p>
+    </div>
+
+    <div class="price-grid">
+
+      <div class="price-card">
+        <h3 class="serif">Hjemmeside</h3>
+        <p class="desc">Til virksomheden der har brug for et ordentligt sted at bo på nettet.</p>
+        <div class="price">
+          <span class="amount serif">2.999</span>
+          <span class="currency">kr.</span>
+        </div>
+        <p class="price-note">engangsbeløb · ekskl. moms</p>
+        <ul class="feat-list">
+          <li>Op til 20 sider</li>
+          <li>SSL-certifikat inkluderet</li>
+          <li>Mobil- og tabletoptimeret</li>
+          <li>Pænt, professionelt design</li>
+          <li>Kontaktformular</li>
+          <li>SEO-grundpakke</li>
+          <li>Google Analytics opsat</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-primary">Få et udkast</a>
+      </div>
+
+      <div class="price-card featured">
+        <span class="price-tag">Mest populær</span>
+        <h3 class="serif">Webshop</h3>
+        <p class="desc">Klar til at sælge — fra produktbillede til betalingsknap.</p>
+        <div class="price">
+          <span class="amount serif">9.999</span>
+          <span class="currency">kr.</span>
+        </div>
+        <p class="price-note">engangsbeløb · ekskl. moms</p>
+        <ul class="feat-list">
+          <li>Op til 10 produkter</li>
+          <li>SSL-certifikat inkluderet</li>
+          <li>Betalingsløsning opsat</li>
+          <li>Fragt og forsendelse</li>
+          <li>Mobil- og tabletoptimeret</li>
+          <li>Lager- og ordrestyring</li>
+          <li>SEO-optimering</li>
+          <li>Træning, så du selv kan administrere</li>
+        </ul>
+        <a href="#kontakt" class="btn btn-primary">Få et udkast</a>
+      </div>
+
+    </div>
+
+    <p class="pricing-note">
+      <strong>Husk:</strong> du betaler først når udkastet er godkendt. Hvis du ikke er glad for det, går vi hver til sit — uden regning.
+    </p>
+  </div>
+</section>
+
+<section class="why">
+  <div class="container">
+    <div class="why-grid">
+      <div>
+        <div class="eyebrow">Hvorfor mig</div>
+        <h2 class="serif" style="font-size: 42px; font-weight: 500; line-height: 1.1; letter-spacing: -0.02em;">
+          Et par <em>løfter</em> jeg holder.
+        </h2>
+        <p style="font-size: 17px; color: var(--ink-soft); margin-top: 18px; max-width: 420px; line-height: 1.6;">
+          Jeg er ikke et bureau. Det er bare mig — og jeg arbejder bedst når jeg er ærlig om hvad du får, og hvad du ikke får.
+        </p>
+      </div>
+      <div class="why-list">
+        <div class="why-item">
+          <h4 class="serif">Jeg svarer hurtigt</h4>
+          <p>Du får svar samme dag, hverdage. Ikke et ticket-nummer, men en mail tilbage fra mig.</p>
+        </div>
+        <div class="why-item">
+          <h4 class="serif">Ingen skjulte tillæg</h4>
+          <p>Prisen er prisen. Hosting og domæne er det eneste der kommer oveni — og jeg fortæller dig præcis hvad det koster på forhånd.</p>
+        </div>
+        <div class="why-item">
+          <h4 class="serif">Du kan selv tage over</h4>
+          <p>Når sitet er klar, viser jeg dig hvordan du selv opdaterer tekst, billeder og produkter. Du behøver ikke ringe til mig hver gang.</p>
+        </div>
+        <div class="why-item">
+          <h4 class="serif">Det skal være pænt</h4>
+          <p>Jeg sender ikke noget fra mig som jeg ikke selv ville være stolt af. Hvis det ikke er godt nok, er det ikke færdigt.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="section-head" style="text-align: center; margin: 0 auto 56px;">
+      <div class="eyebrow" style="justify-content: center; display: flex;">Det folk plejer at spørge om</div>
+      <h2 class="serif">Spørgsmål, <em>helt ærligt besvaret.</em></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item open">
+        <div class="faq-q">Er udkastet virkelig gratis? Hvor er hagen?</div>
+        <div class="faq-a">Ja, det er det. Hagen er at jeg bruger tid på det og håber du synes om det — så vi kan arbejde sammen. Hvis du ikke gør, har jeg lært noget, og du har ikke spildt penge. Det er en aftale jeg synes er fair for begge parter.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Hvor lang tid går der før jeg ser udkastet?</div>
+        <div class="faq-a">Som regel 3-5 hverdage fra vi har snakket. Hvis jeg har meget travlt, siger jeg det med det samme — du skal ikke vente i ugevis uden at høre fra mig.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Hvad nu hvis jeg har brug for flere sider eller produkter?</div>
+        <div class="faq-a">Det kan vi sagtens. Jeg har faste tillægspriser pr. ekstra side eller produkt — du får et samlet tilbud før vi går i gang, så du ved hvad det lander på.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Kan jeg selv redigere bagefter?</div>
+        <div class="faq-a">Ja. Du får adgang til administrationen, og jeg viser dig hvordan du opdaterer tekst, billeder og produkter. Det er ikke raketvidenskab — du klarer det fint selv.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Hvad sker der efter sitet er live?</div>
+        <div class="faq-a">Du har 30 dages support inkluderet til mindre rettelser. Vil du have mig til at passe sitet løbende, har jeg en simpel månedsaftale — men det er aldrig et krav.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q">Bygger du på WordPress, Shopify eller noget andet?</div>
+        <div class="faq-a">Det kommer an på hvad der passer bedst til dit projekt. Jeg snakker med dig om det først, og så finder vi ud af hvad der giver mening — du skal ikke ende med en platform der er for kompliceret til dine behov.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="kontakt">
+  <div class="container">
+    <div class="contact-grid">
+      <div>
+        <div class="eyebrow">Kom i gang</div>
+        <h2 class="serif">Skriv et par linjer.<br><em>Resten finder vi ud af.</em></h2>
+        <p class="lead">
+          Fortæl mig kort hvad du har brug for — om det er en webshop, en hjemmeside eller bare en idé du gerne vil snakke om. Jeg vender tilbage samme dag.
+        </p>
+        <div class="contact-meta">
+          📧 <a href="mailto:Hiwad@clovr.dk">Hiwad@clovr.dk</a><br>
+          🇩🇰 Dansk support, dansk tid<br>
+          ⏱ Svar samme dag, hverdage
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault(); const f=this; window.location.href='mailto:Hiwad@clovr.dk?subject=Forespørgsel%20fra%20Webshops%20til%20Fast%20Pris&body=' + encodeURIComponent('Navn: ' + f.elements['navn'].value + '\nEmail: ' + f.elements['email'].value + '\n\nProjekt:\n' + f.elements['besked'].value);">
+        <div class="field">
+          <label>Navn</label>
+          <input type="text" name="navn" required placeholder="Dit navn">
+        </div>
+        <div class="field">
+          <label>Email</label>
+          <input type="email" name="email" required placeholder="dig@email.dk">
+        </div>
+        <div class="field">
+          <label>Hvad har du brug for?</label>
+          <textarea name="besked" required placeholder="Fx: jeg sælger keramik og vil gerne have en webshop med 6-7 produkter…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Send — og få et gratis udkast</button>
+        <p class="form-note">Du forpligter dig ikke til noget. Vi snakker først.</p>
+      </form>
+    </div>
+
+    <div class="ps">
+      <strong>P.S.</strong> Hvis du er i tvivl om noget, så bare skriv. Jeg er ikke en sælger, og jeg har ingen dårlig samvittighed med at sige "det her er ikke det rigtige for dig" — det er bedre for os begge.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container foot-inner">
+    <div>© 2026 Webshops til Fast Pris · Clovr</div>
+    <div><a href="mailto:Hiwad@clovr.dk">Hiwad@clovr.dk</a></div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.faq-q').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+</script>
+
+</body>
+</html>
